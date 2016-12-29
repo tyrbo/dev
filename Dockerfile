@@ -82,7 +82,7 @@ RUN ~/.rbenv/shims/gem install bundler
 RUN curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install dotfiles
-ENV DOTFILE_VERSION 0.0.1
+ENV DOTFILE_VERSION 0.0.2
 RUN git clone https://github.com/tyrbo/dotfiles.git --branch $DOTFILE_VERSION --depth 1 ~/.config/dotfiles
 RUN cd ~/.config/dotfiles && ./install
 
