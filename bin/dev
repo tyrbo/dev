@@ -1,0 +1,4 @@
+#!/bin/bash
+DIR=$(basename $PWD)
+
+docker run --rm -v $PWD:/home/dev/$DIR -w /home/dev/$DIR -it tyrbo/dev tmux new
