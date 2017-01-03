@@ -1,4 +1,5 @@
 #!/bin/bash
 DIR=$(basename $PWD)
+WIN_PATH=$(echo $PWD | sed 's/\/mnt\/c\//c:\//g')
 
-docker run --rm -v $PWD:/home/dev/$DIR -w /home/dev/$DIR -it tyrbo/dev tmux new
+docker run --rm -v c:/Users/tyrbo/.rbenv/versions:/home/dev/.rbenv/versions -v $WIN_PATH:/home/dev/$DIR -w /home/dev/$DIR -it tyrbo/dev tmux new bash
