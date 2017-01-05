@@ -49,4 +49,13 @@ RUN curl -fLo tmux-2.2.tar.gz https://github.com/tmux/tmux/releases/download/2.2
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN curl https://get.docker.com/builds/Linux/x86_64/docker-1.12.5.tgz > docker.tgz
+RUN tar xf docker.tgz && \
+  mv docker/docker /usr/bin
+
+RUN groupadd -g 999 docker
+
+RUN curl -L https://github.com/docker/compose/releases/download/1.10.0-rc1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+
 CMD ["bash"]

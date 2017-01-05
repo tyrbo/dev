@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e
+
+sudo apt-get update && sudo apt-get install -y \
+  python-software-properties \
+  software-properties-common
+
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+
+sudo apt-get update && sudo apt-get install -y \
+  build-essential \
+  curl \
+  libevent-dev \
+  libncurses-dev \
+  libpq-dev \
+  libreadline-dev \
+  libssl-dev \
+  git \
+  ncurses-term \
+  neovim \
+  python-dev \
+  python-pip \
+  python3-dev \
+  python3-pip \
+  python3-setuptools \
+  silversearcher-ag \
+  xclip \
+  zlib1g-dev
+
+sudo -H pip3 install neovim
+
+cd /tmp
+curl -fLo tmux-2.2.tar.gz https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz && \
+  tar -xzvf tmux-2.2.tar.gz && \
+  cd tmux-2.2 && \
+  ./configure && \
+  make && \
+  sudo make install
+

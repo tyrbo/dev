@@ -1,6 +1,7 @@
 FROM tyrbo/base
 
 RUN groupadd -g 1000 dev && useradd -u 1000 -g 1000 -m dev
+RUN gpasswd -a dev docker
 
 USER dev
 WORKDIR /home/dev
